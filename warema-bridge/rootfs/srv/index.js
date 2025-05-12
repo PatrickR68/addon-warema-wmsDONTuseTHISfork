@@ -43,6 +43,7 @@ function registerDevice(element) {
 
     var model
     var payload
+    log.info('element.type for switch: ' + parseInt(element.type)) //PatrickR68 2025-05-11 err-debug
     switch (parseInt(element.type)) {
         case 6:
             model = 'Weather station eco'
@@ -321,7 +322,9 @@ function callback(err, msg) {
                 log.silly('Weather broadcast:\n' + JSON.stringify(msg.payload, null, 2))
 
                 if (!devices[msg.payload.weather.snr]) {
-                    registerDevice({snr: msg.payload.weather.snr, type: 6});
+//                    registerDevice({snr: msg.payload.weather.snr, type: 6});      //PatrickR68 2025-05-12 err-debug
+                    registerDevice({snr: msg.payload.weather.snr, type: 63});       //PatrickR68 2025-05-12 err-debug
+                    log.info('Warema Weather: ' +  JSON.stringify(msg.payload, null, 2));    //PatrickR68 2025-05-12 err-debug
                 }
 
                 client.publish('warema/' + msg.payload.weather.snr + '/illuminance/state', msg.payload.weather.lumen.toString(), {retain: true})
