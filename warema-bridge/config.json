@@ -1,6 +1,6 @@
 {
   "name": "Warema Bridge - Pmant (fork: PatrickR68)",
-  "version": "0.99.02",
+  "version": "0.99.03",
   "slug": "warema_bridge_pmant",
   "description": "Control your Warema WMS system",
   "arch": ["aarch64", "amd64", "armv7", "i386"],
